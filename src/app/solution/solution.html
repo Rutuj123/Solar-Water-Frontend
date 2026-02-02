@@ -1,0 +1,65 @@
+<div class="container mt-5">
+
+  <!-- Header -->
+  <h2 class="text-center mb-4">Our Solar Water Solution</h2>
+  <p class="text-center text-muted mb-5">
+    We provide solar-powered water purification systems that deliver
+    safe drinking water even in areas with no electricity.
+  </p>
+
+  <!-- How It Works -->
+  <div class="row text-center mb-5">
+    <h4 class="mb-4">How It Works</h4>
+
+    <div class="col-md-3" *ngFor="let step of steps">
+      <div class="card shadow h-100 p-3">
+        <div class="fs-1 mb-2">{{ step.icon }}</div>
+        <h6>{{ step.title }}</h6>
+        <p class="text-muted">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefits -->
+  <div class="row text-center mb-5">
+    <h4 class="mb-4">Key Benefits</h4>
+
+    <div class="col-md-4 mb-3" *ngFor="let benefit of benefits">
+      <div class="card shadow p-4 h-100">
+        <div class="fs-2 mb-2">{{ benefit.icon }}</div>
+        <h6>{{ benefit.title }}</h6>
+        <p class="text-muted">{{ benefit.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Use Cases -->
+  <div class="text-center mb-5">
+    <h4>Where Can It Be Used?</h4>
+    <p class="text-muted">
+      Our solar water systems are designed for diverse environments.
+    </p>
+
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <span class="badge bg-success p-3"
+            *ngFor="let use of useCases">
+        {{ use }}
+      </span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center mt-4">
+     <li class="nav-item"><a class="nav-link" routerLink="/products">Products Linkk</a></li>
+    <button class="btn btn-primary btn-lg me-2"
+            (click)="goToProducts()">
+      View Products
+    </button>
+
+    <button class="btn btn-success btn-lg"
+            (click)="goToContact()">
+      Enquire Now
+    </button>
+  </div>
+
+</div>

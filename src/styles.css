@@ -1,0 +1,32 @@
+/* body {
+  padding-top: 70px;
+}
+
+.hero-section {
+  height: 90vh;
+  background: linear-gradient(
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.6)
+    ),
+    url('https://images.unsplash.com/photo-1509395176047-4a66953fd231');
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+footer {
+  font-size: 14px;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: #25d366;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+} */
