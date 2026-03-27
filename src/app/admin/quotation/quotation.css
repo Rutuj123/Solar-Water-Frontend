@@ -1,0 +1,133 @@
+.quotation-wrapper {
+  padding: 40px;
+  background: #eef2f7;
+  min-height: 100vh;
+}
+.quotation-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.company-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+.company-info h2 {
+  margin: 0;
+  color: #0d6efd;
+}
+
+.quote-info h1 {
+  margin: 0;
+  font-size: 28px;
+}
+.buyer-section {
+  margin-bottom: 30px;
+}
+
+.buyer-section input,
+.buyer-section textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.table-section th,
+.table-section td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+.table-section th {
+  background: #f3f4f6;
+}
+
+.table-section input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.text-right {
+  text-align: right;
+  font-weight: 600;
+}
+
+.summary-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.summary-box {
+  width: 320px;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summary-row.total {
+  font-weight: bold;
+  font-size: 16px;
+  border-top: 1px solid #ddd;
+  padding-top: 8px;
+}
+.terms-section {
+  margin-top: 30px;
+}
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.terms-section input,
+.terms-section textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.action-bar {
+  margin-top: 25px;
+  text-align: right;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+

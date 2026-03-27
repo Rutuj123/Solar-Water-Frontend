@@ -1,0 +1,64 @@
+
+<p>Order List</p>
+<section  class="bg-light py-5">
+<button class="btn btn-primary mb-3" (click)="openAddModal()">
+  Add Order
+</button>    
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Order Date</th>
+            <th>Total</th>
+            <th>Status</th>
+                   </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let order of orders">
+      <td>{{order.id}}</td>
+      <td>{{order.orderDate}}</td>
+      <td>{{order.grandTotal}}</td>
+      <td>{{order.status}}</td>
+           </tr> 
+        </tbody>
+    </table>
+</div>
+
+<!-- ADD ORDER  MODAL -->
+<div class="modal fade show d-block" *ngIf="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Order</h5>
+        <button class="btn-close" (click)="closeModal()"></button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="orderForm" (ngSubmit)="createOrder()">
+
+          <select class="form-control mb-2"
+            formControlName="enquiryId">
+            <option value="">Select Entry</option>
+            <option *ngFor="let entry of entries" [value]="entry.id">
+        {{ entry.id }}
+            </option>
+          </select>
+          <select formControlName="quotationId">
+      <option value="">Select Quotation</option>
+      <option *ngFor="let quotation of quotations" [value]="quotation.id">
+        {{ quotation.id }}
+      </option>
+             </select>
+         <button class="btn btn-success w-100" type="submit">
+            Save Order
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,66 @@
+<div class="card">
+  <h2>Payment Entry</h2>
+
+  <form [formGroup]="paymentForm" (ngSubmit)="savePayment()">
+
+    <label>Order ID</label>
+    <input type="number" formControlName="order.id" />
+
+    <label>Amount</label>
+    <input type="number" formControlName="amount" />
+
+    <label>Payment Date</label>
+    <input type="date" formControlName="paymentDate" />
+
+    <label>Payment Mode</label>
+    <select formControlName="paymentMode">
+      <option value="CASH">Cash</option>
+      <option value="UPI">UPI</option>
+      <option value="BANK_TRANSFER">Bank Transfer</option>
+    </select>
+
+    <label>Transaction ID</label>
+    <input type="text" formControlName="transactionId" />
+
+    <button type="submit">Save Payment</button>
+
+  </form>
+</div>
+
+<h2>All Orders</h2>
+
+<!-- TABLE -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount</th>
+        <th>Payment Date</th>
+        <th>Payment Mode</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of payments">
+        <td>{{p.transactionId}}</td>
+        <td>{{p.amount}}</td>
+        <td>{{p.paymentDate}}</td>
+        <td>{{p.paymentMode}}</td>
+        <td>₹ {{p.status}}</td>
+        <td>
+          <span class="badge bg-success" *ngIf="p.status=='ACTIVE'">ACTIVE</span>
+          <span class="badge bg-secondary" *ngIf="p.status!='ACTIVE'">INACTIVE</span>
+        </td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="openEditModal()">
+            Edit
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deletePayment(p.transactionId)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

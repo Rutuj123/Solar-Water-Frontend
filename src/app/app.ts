@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Home } from './home/home';
 
 @Component({
@@ -11,4 +11,8 @@ import { Home } from './home/home';
 })
 export class App {
   protected title = 'solar-water-website';
+  constructor(private router: Router){};
+  dashboard(){
+ this.router.navigate(['/admin/dashboard']);
+}
 }

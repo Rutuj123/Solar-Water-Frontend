@@ -22,4 +22,17 @@ enquiries(){
 products(){
   this.router.navigate(['/admin/products']);
 }
+quotation(){
+  this.router.navigate(['/admin/quotation'])
+}
+installation(){
+  this.router.navigate(['/admin/installation'])
+}
+orders(){
+  this.router.navigate(['/admin/orders'])
+}
+payment(){
+  this.router.navigate(['/admin/payment'])
+}
+
 }

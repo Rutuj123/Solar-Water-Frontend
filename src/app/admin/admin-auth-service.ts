@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AdminAuthService {
   private baseUrl = 'http://localhost:8080/auth/login';
+ //private baseUrl = '/api/auth/login';
   constructor(private http: HttpClient){};
   login(username:string,password:string): Observable<any>{
     console.log("this.email   "+username);
@@ -17,8 +18,12 @@ export class AdminAuthService {
     };
     return this.http.post(`${this.baseUrl}`,body);
   };
+  isLoggedIn(): boolean{
+   return !!localStorage.getItem('token');
+  }
 
   logout(){
     localStorage.removeItem('token');
   };
+  
 }

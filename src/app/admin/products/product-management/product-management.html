@@ -1,8 +1,8 @@
 <p>Product List For Admin</p>
-<p></p>
-<p></p>
 <section  class="bg-light py-5">
-    
+<button class="btn btn-primary mb-3" (click)="openAddModal()">
+  Add Product
+</button>    
 <div>
     <table class="table table-bordered table-striped">
         <thead>
@@ -37,9 +37,7 @@
     </table>
 </div>
 
-<button class="btn btn-primary mb-3" (click)="openAddModal()">
-  Add Product
-</button>
+
 
 <!-- ADD PRODUCT MODAL -->
 <div class="modal fade show d-block" *ngIf="showModal">

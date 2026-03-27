@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl='http://localhost:8080/auth/products';
+  //private apiUrl='http://localhost:8080/auth/products';
+   private apiUrl='https://solar-water-backend.onrender.com/auth/products';
   constructor(private http: HttpClient){}
   getProducts(){
     return this.http.get<Product[]>(this.apiUrl);

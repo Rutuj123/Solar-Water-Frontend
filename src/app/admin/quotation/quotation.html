@@ -1,0 +1,168 @@
+<p>Quotation List</p>
+<p></p>
+<p></p>
+<section class="bg-light py-5">
+
+<h3 class="mb-4 text-center">Quotation List For Admin</h3>
+
+<div class="container">
+
+  <!-- ADD BUTTON -->
+  <button class="btn btn-primary mb-3" (click)="openAddModal()">
+    Add Quotation
+  </button>
+
+  <!-- TABLE -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Quotation No</th>
+        <th>Date</th>
+        <th>Buyer Name</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let q of quotations">
+        <td>{{q.id}}</td>
+        <td>{{q.quotationNumber}}</td>
+        <td>{{q.date}}</td>
+        <td>{{q.buyerName}}</td>
+        <td>₹ {{q.grandTotal}}</td>
+        <td>
+          <span class="badge bg-success" *ngIf="q.status=='ACTIVE'">ACTIVE</span>
+          <span class="badge bg-secondary" *ngIf="q.status!='ACTIVE'">INACTIVE</span>
+        </td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="openEditModal(q)">
+            Edit
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteQuotation(q.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- ADD QUOTATION MODAL -->
+<div class="modal fade show d-block" *ngIf="showModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Add Quotation</h5>
+        <button class="btn-close" (click)="closeModal()"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <form [formGroup]="quotationForm" (ngSubmit)="submitQuotation()">
+
+          <div class="row">
+            <div class="col-md-6">
+              <input class="form-control mb-2"
+                     placeholder="Quotation Number"
+                     formControlName="quotationNumber">
+            </div>
+
+            <div class="col-md-6">
+              <input type="date"
+                     class="form-control mb-2"
+                     formControlName="date">
+            </div>
+          </div>
+
+          <input class="form-control mb-2"
+                 placeholder="Buyer Name"
+                 formControlName="buyerName">
+
+          <textarea class="form-control mb-3"
+                    placeholder="Buyer Address"
+                    formControlName="buyerAddress"></textarea>
+
+          <input class="form-control mb-2"
+                 placeholder="Grand Total"
+                 formControlName="grandTotal">
+
+          <select class="form-control mb-3"
+                  formControlName="status">
+            <option>ACTIVE</option>
+            <option>INACTIVE</option>
+          </select>
+
+          <button class="btn btn-success w-100" type="submit">
+            Save Quotation
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EDIT QUOTATION MODAL -->
+<div class="modal fade show d-block" *ngIf="showEditModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Quotation</h5>
+        <button class="btn-close" (click)="closeEditModal()"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <form (ngSubmit)="submitEditQuotation()">
+
+          <input class="form-control mb-2"
+                 [(ngModel)]="selectedQuotation.quotationNumber"
+                 name="quotationNumber">
+
+          <input type="date"
+                 class="form-control mb-2"
+                 [(ngModel)]="selectedQuotation.date"
+                 name="date">
+
+          <input class="form-control mb-2"
+                 [(ngModel)]="selectedQuotation.buyerName"
+                 name="buyerName">
+
+          <textarea class="form-control mb-2"
+                    [(ngModel)]="selectedQuotation.buyerAddress"
+                    name="buyerAddress"></textarea>
+
+          <input class="form-control mb-2"
+                 [(ngModel)]="selectedQuotation.grandTotal"
+                 name="grandTotal">
+
+          <select class="form-control mb-3"
+                  [(ngModel)]="selectedQuotation.status"
+                  name="status">
+            <option>ACTIVE</option>
+            <option>INACTIVE</option>
+          </select>
+
+          <button class="btn btn-success w-100" type="submit">
+            Update Quotation
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</section>

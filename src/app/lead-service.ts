@@ -6,7 +6,8 @@ import { Lead } from './interface_model/lead.model';
   providedIn: 'root',
 })
 export class LeadService {
-  private apiurl='http://localhost:8080/api/leads';
+  //private apiurl='http://localhost:8080/api/leads';
+  private apiurl='https://solar-water-backend.onrender.com/api/leads';
   constructor(private http:HttpClient){}
   createLead(lead:Lead){
    return this.http.post(this.apiurl,lead);
